@@ -1,0 +1,63 @@
+version: '2'
+
+services:
+
+  nexus:
+    image: sonatype/nexus3:3.3.0
+    ports:
+      - "8081:8081"
+      # port for docker group registry
+      - "18044:18044"
+      # port for docker group registry
+      - "18045:18045"
+    volumes:
+      - nexus-data:/nexus-data
+    networks:
+      - facto
+
+  jenkins:
+    image: jenkinsci/jenkins:lts
+    environment:
+      JAVA_OPTS: "-Djava.awt.headless=true"
+    volumes:
+      - jenkins-data:/var/jenkins_home
+    ports:
+      - "50000:50000"
+      - "8082:8080"
+    networks:
+      - facto
+
+  gogs:
+    image: gogs/gogs
+    ports:
+      - "18060:18060"
+      - "18061:3000"
+    volumes:
+      - gogs-data:/data
+    networks:
+      - facto
+
+  portainer:
+    image: portainer/portainer
+    volumes:
+      # We have to attach the docker socket
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - portainer-data:/data
+    ports:
+      - "18050:9000"
+    networks:
+      - facto
+
+
+networks:
+
+  facto:
+    driver: bridge
+
+
+volumes:
+
+  nexus-data:
+  jenkins-data:
+  gogs-data:
+  portainer-data:

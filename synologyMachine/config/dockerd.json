@@ -1,0 +1,4 @@
+{
+  "ipv6": true,
+  "insecure-registries": ["docker-all.mydomain.com", "docker-hosted.mydomain.com"]
+}
