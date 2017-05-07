@@ -109,8 +109,8 @@ jenkins              | https://jenkins.mydomain.com       | http://localhost:808
 jenkins https        | https://jenkins.mydomain.com       | http://localhost:8082
 nexus                | https://nexus.mydomain.com         | http://localhost:8081
 nexus https          | https://nexus.mydomain.com         | http://localhost:8081
-nexus docker group   | https://docker-hosted.mydomain.com | http://localhost:18045
-nexus docker hosted  | https://docker-all.mydomain.com    | http://localhost:18050
+nexus docker group   | https://docker-hosted.mydomain.com | http://localhost:18044
+nexus docker hosted  | https://docker-all.mydomain.com    | http://localhost:18045
 
 ## Certificate
 - Go in your DSM => Control Panel => Security => Certificate

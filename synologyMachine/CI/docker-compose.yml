@@ -6,9 +6,9 @@ services:
     image: sonatype/nexus3:3.3.0
     ports:
       - "8081:8081"
-      # port for docker group registry
+      # port for docker hosted registry
       - "18044:18044"
-      # port for docker group registry
+      # port for docker all registry
       - "18045:18045"
     volumes:
       - nexus-data:/nexus-data
@@ -30,7 +30,7 @@ services:
   gogs:
     image: gogs/gogs
     ports:
-      - "18060:18060"
+      - "18060:22"
       - "18061:3000"
     volumes:
       - gogs-data:/data
