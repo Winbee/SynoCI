@@ -158,8 +158,8 @@ sudo vim /etc/docker/daemon.json
 and this file:
 ``` bash
 sudo vim /lib/systemd/system/docker.service
-#ExecStart=/usr/bin/dockerd
-ExecStart=/usr/bin/dockerd -H fd://
+ExecStart=/usr/bin/dockerd
+#ExecStart=/usr/bin/dockerd -H fd://
 ```
 and by restarting the service:
 ``` bash
