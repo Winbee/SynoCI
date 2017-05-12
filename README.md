@@ -122,7 +122,13 @@ nexus docker hosted  | https://docker-all.mydomain.com    | http://localhost:180
   
 ## Nexus configuration
 
-TODO
+To create a docker registry in Nexus, you have to have a specific port for each one you want to reach.
+I've created 3 docker repositories:
+- docker-hosted: responsible for hosting all my private images
+- docker-proxy: responsible for proxying docker hub (This one doesn't need a specific port as it will be distributed by docker-all)
+- docker-all: responsible for distributing artifacts stored in docker-hosted and docker-proxy repos.
+
+The official documentation should be enough for the rest.
 
 ### Acces the private docker registry
 Nexus is able to provide a docker registry. Once you've configured it, it needs extra steps to be able to be used.
@@ -170,21 +176,21 @@ systemctl start docker
 
 ## Gogs configuration
 
-TODO
+I didn't encounter any particular problem. The official doc should be enough to start.
 
-## Jenkins configuration
-
-TODO
-
-
-## Duplicating your private git repo
+### Duplicating your private git repo
 If you are paranoid about losing your git repo on your NAS, you can easily duplicate your repo by adding multiple remote location in git 
 config. See this [stackoverflow answer](http://stackoverflow.com/a/3195446) for more details.
 
+## Jenkins configuration
 
-# Todo
+I didn't encounter any particular problem. The official doc should be enough to start.
 
-- Test with the proof project
-- Configure Nexus and Jenkins
-- Deal with backup
+## Portainer configuration
 
+I coudn't not access Portainer through a domain name. I had to type the IP of my NAS.
+Another important thing, when Portainer start for the first time, select the local Docker option.
+
+## Sidenote
+
+Don't forget to backup everything by following the recommendation of each products.
